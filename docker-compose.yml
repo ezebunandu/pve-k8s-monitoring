@@ -1,0 +1,10 @@
+services:
+  pve-***REMOVED***:
+    image: prompve/prometheus-pve-***REMOVED***
+    container_name: pve-***REMOVED***
+    ports:
+      - '9221:9221'
+    restart: always
+    volumes:
+      - ./pve.yml:/etc/pve.yml
+
