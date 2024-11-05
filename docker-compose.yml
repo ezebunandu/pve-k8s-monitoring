@@ -6,5 +6,5 @@ services:
       - '9221:9221'
     restart: always
     volumes:
-      - ./pve.yml:/etc/pve.yml
+      - ./pve.yml:/etc/prometheus/pve.yml
 
