@@ -5,6 +5,10 @@ services:
     ports:
       - '9221:9221'
     restart: always
+    networks:
+      - prometheus_prom_net
     volumes:
       - ./pve.yml:/etc/prometheus/pve.yml
-
+networks:
+  prometheus_prom_net:
+    external: true  # Indicates that this network is defined outside this compose file
