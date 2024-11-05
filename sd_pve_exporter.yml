@@ -1,5 +1,5 @@
 ---
 - labels:
-    job: 'pve'
+    job: 'pve_***REMOVED***'
   targets:
     - 'pve-***REMOVED***:9221'
