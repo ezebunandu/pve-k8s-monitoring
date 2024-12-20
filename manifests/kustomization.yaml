@@ -4,7 +4,7 @@ namespace: pve-monitor
 resources:
   - namespace.yaml
   - pve-secret.yaml
-  - pve-configmap.yaml
+  - configmap.yaml
   - deployment.yaml
   - pve-service.yaml
   - pve-servicemonitor.yaml
