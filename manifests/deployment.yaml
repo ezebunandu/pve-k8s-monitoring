@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pve-***REMOVED***
+  labels:
+    app: pve-***REMOVED***
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pve-***REMOVED***
+  template:
+    metadata:
+      labels:
+        app: pve-***REMOVED***
+    spec:
+      containers:
+        - name: pve-***REMOVED***
+          image: prompve/prometheus-pve-***REMOVED***:latest
+          ports:
+            - containerPort: 9221
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/prometheus/pve.yml
+              subPath: pve.yml
+      restartPolicy: Always
+      volumes:
+        - name: config-volume
+          configMap:
+            name: pve-***REMOVED***-config

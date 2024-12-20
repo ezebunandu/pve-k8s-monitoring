@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pve-configmap
+data:
+  user: "prometheus@pam"
+  verify_ssl: "false"

@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pve-***REMOVED***
+  namespace: pve-monitor
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: pve-***REMOVED***
+  namespaceSelector:
+    matchNames:
+    - pve-monitor
+  endpoints:
+  - port: http
+    interval: 30s
