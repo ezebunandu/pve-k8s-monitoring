@@ -3,5 +3,7 @@ kind: ConfigMap
 metadata:
   name: pve-configmap
 data:
-  user: "prometheus@pam"
-  verify_ssl: "false"
+  pve.yml: |
+    default:
+      user: prometheus@pam
+      verify_ssl: false

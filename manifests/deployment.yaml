@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pve-***REMOVED***
-  labels:
-    app: pve-***REMOVED***
 spec:
   replicas: 1
   selector:
@@ -19,12 +17,26 @@ spec:
           image: prompve/prometheus-pve-***REMOVED***:latest
           ports:
             - containerPort: 9221
+          env:
+            - name: TOKEN_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: pve-secret
+                  key: token_name
+            - name: TOKEN_VALUE
+              valueFrom:
+                secretKeyRef:
+                  name: pve-secret
+                  key: token_value
           volumeMounts:
             - name: config-volume
-              mountPath: /etc/prometheus/pve.yml
+              mountPath: /etc/prometheus/
               subPath: pve.yml
       restartPolicy: Always
       volumes:
         - name: config-volume
           configMap:
             name: pve-configmap
+            items:
+              - key: pve.yml
+                path: pve.yml
