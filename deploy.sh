@@ -11,8 +11,8 @@ ENCODED_TOKEN_NAME=$(echo -n $TOKEN_NAME | base64)
 ENCODED_TOKEN_VALUE=$(echo -n $TOKEN_VALUE | base64)
 
 # Replace placeholders in pve-secret.yml
-sed -i -e "s#{TOKEN_NAME}#${ENCODED_TOKEN_NAME}#g" ./manifests/pve-secret.yml
-sed -i -e "s#{TOKEN_VALUE}#${ENCODED_TOKEN_VALUE}#g" ./manifests/pve-secret.yml
+sed -i -e "s#{TOKEN_NAME}#${ENCODED_TOKEN_NAME}#g" ./manifests/pve-secret.yaml
+sed -i -e "s#{TOKEN_VALUE}#${ENCODED_TOKEN_VALUE}#g" ./manifests/pve-secret.yaml
 
 # Apply the Kustomize configuration
 kubectl apply -k manifests/
