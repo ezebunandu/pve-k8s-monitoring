@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: pve-***REMOVED***-config
+            name: pve-configmap
