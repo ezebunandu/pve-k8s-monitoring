@@ -7,4 +7,4 @@ resources:
   - configmap.yaml
   - deployment.yaml
   - pve-service.yaml
-  - pve-servicemonitor.yaml
+  - servicemonitor.yaml
