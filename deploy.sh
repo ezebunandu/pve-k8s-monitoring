@@ -6,9 +6,13 @@ if [ -z "$TOKEN_NAME" ] || [ -z "$TOKEN_VALUE" ]; then
   exit 1
 fi
 
+# Base64 encode the environment variables
+ENCODED_TOKEN_NAME=$(echo -n $TOKEN_NAME | base64)
+ENCODED_TOKEN_VALUE=$(echo -n $TOKEN_VALUE | base64)
+
 # Replace placeholders in pve-secret.yml
-sed -i -e "s#{TOKEN_NAME}#s$(echo -n $TOKEN_NAME | base64)#g" ./manifests/pve-secret.yaml
-sed -i -e "s#{TOKEN_VALUE}#$(echo -n $TOKEN_VALUE | base64)#g" ./manifests/pve-secret.yaml
+sed -i -e "s#{TOKEN_NAME}#${ENCODED_TOKEN_NAME}#g" ./manifests/pve-secret.yml
+sed -i -e "s#{TOKEN_VALUE}#${ENCODED_TOKEN_VALUE}#g" ./manifests/pve-secret.yml
 
 # Apply the Kustomize configuration
 kubectl apply -k manifests/
