@@ -5,3 +5,4 @@ metadata:
 data:
     PVE_USER: "prometheus@pam"
     PVE_VERIFY_SSL: "false"
+    PVE_HOST: "192.168.227.2"

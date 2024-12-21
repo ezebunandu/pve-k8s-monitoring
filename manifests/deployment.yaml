@@ -19,12 +19,12 @@ spec:
             - containerPort: 9221
               name: http
           env:
-            - name: TOKEN_NAME
+            - name: PVE_TOKEN_NAME
               valueFrom:
                 secretKeyRef:
                   name: pve-secret
                   key: token_name
-            - name: TOKEN_VALUE
+            - name: PVE_TOKEN_VALUE
               valueFrom:
                 secretKeyRef:
                   name: pve-secret
