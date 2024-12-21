@@ -9,9 +9,7 @@ spec:
   selector:
     matchLabels:
       app: pve-***REMOVED***
-  namespaceSelector:
-    matchNames:
-    - pve-monitor
   endpoints:
   - port: http
     interval: 30s
+    path: /pve

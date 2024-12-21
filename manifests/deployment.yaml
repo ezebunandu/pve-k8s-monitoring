@@ -17,6 +17,7 @@ spec:
           image: prompve/prometheus-pve-***REMOVED***:latest
           ports:
             - containerPort: 9221
+              name: http
           env:
             - name: TOKEN_NAME
               valueFrom:

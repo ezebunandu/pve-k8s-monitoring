@@ -10,4 +10,5 @@ spec:
     - port: 9221
       targetPort: 9221
       protocol: TCP
+      name: http
   type: ClusterIP
