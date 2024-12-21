@@ -28,15 +28,7 @@ spec:
                 secretKeyRef:
                   name: pve-secret
                   key: token_value
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/prometheus/
-              subPath: pve.yml
+          envFrom:
+            - configMapRef:
+                name: pve-configmap
       restartPolicy: Always
-      volumes:
-        - name: config-volume
-          configMap:
-            name: pve-configmap
-            items:
-              - key: pve.yml
-                path: pve.yml
