@@ -1,5 +1,5 @@
 default:
     user: prometheus@pam
-    token_name: "***REMOVED***"
-    token_value: "***REMOVED***"
+    token_name: "XXXXX"
+    token_value: "XXXXXXXXXX"
     verify_ssl: false

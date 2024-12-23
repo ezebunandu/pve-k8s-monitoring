@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: pve-exporter
+  namespace: pve-monitor
+spec:
+  staticConfigs:
+    - targets:
+        - 192.168.227.2
+        - 192.168.227.3
+        - 192.168.227.250
+  metricsPath: /pve
+  params:
+    module: [default]
+  relabelingConfigs:
+    - sourceLabels: [__address__]
+      targetLabel: __param_target
+    - sourceLabels: [__param_target]
+      targetLabel: instance
+    - targetLabel: __address__
+      replacement: pve-exporter.pve-monitor.svc:9221

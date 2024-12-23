@@ -1,7 +1,7 @@
 services:
-  pve-***REMOVED***:
-    image: prompve/prometheus-pve-***REMOVED***
-    container_name: pve-***REMOVED***
+  pve-exporter:
+    image: prompve/prometheus-pve-exporter
+    container_name: pve-exporter
     ports:
       - '9221:9221'
     restart: always

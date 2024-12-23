@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pve-***REMOVED***
+  name: pve-exporter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pve-***REMOVED***
+      app: pve-exporter
   template:
     metadata:
       labels:
-        app: pve-***REMOVED***
+        app: pve-exporter
     spec:
       containers:
-        - name: pve-***REMOVED***
-          image: prompve/prometheus-pve-***REMOVED***:latest
+        - name: pve-exporter
+          image: prompve/prometheus-pve-exporter:latest
           ports:
             - containerPort: 9221
               name: http
